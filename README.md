@@ -58,7 +58,7 @@ In case this does not work, you can get the sources yourself [here](https://gith
 
 Git clone the caravel_board repository. 
 
-git clone https://github.com/efabless/caravel_board.git
+git clone https://github.com/yathAg/vsdsquadron_software.git
 
 ### Programming Flow
 
@@ -69,8 +69,7 @@ git clone https://github.com/efabless/caravel_board.git
 GPIO test is a simple script to toggle all the GPIOs on the board. The commands below illustrate the process of flashing vsdsquadron with the code.
 
 ```
-$ cd caravel_board/firmware_vex/gpio_test
-$ cp ../matt_test/gpio_config_def.py . 
+$ cd vsdsquadron_software/firmware/gpio_test
 $ make
 ```
 
