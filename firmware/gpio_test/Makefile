@@ -40,25 +40,10 @@ check: gpio_config_def.py gpio_config_io.py gpio_config_data.c
 %.bin: %.elf
 	$(TOOLCHAIN_PATH)$(TOOLCHAIN_PREFIX)-unknown-elf-objcopy -O binary $< $@
 
-client: client.c
-	gcc client.c -o client
 
 flash: gpio_test.hex
 	python3 ../util/caravel_hkflash.py $<
 	python3 ../util/caravel_hkstop.py
-
-flash_nucleo: gpio_test.hex
-	make -f ../nucleo/Makefile flash FILE=gpio_test.hex VOLTAGE=$(VOLTAGE)
-
-sanity_check: gpio_config_def.py
-	make -f ../nucleo/Makefile sanity_check FILE=gpio_config_def.py
-
-# run to bringup Caravel power while mounted on Nucleo
-poweron:
-	make -f ../nucleo/Makefile poweron VOLTAGE=$(VOLTAGE)
-
-change_power:
-	make -f ../nucleo/Makefile change_power VOLTAGE=$(VOLTAGE)
 
 # ---- Clean ----
 
