@@ -5,14 +5,14 @@
 ## Mechanical Overview
 
 ### Top view
-![top](resources/s_top.jpg)
+![top](Resources/s_top.jpg)
 ### Bottom view
-![bot](resources/s_bot.jpg)
+![bot](Resources/s_bot.jpg)
 
 ## Functional Overview
 
 ### Block diagram
-![block](resources/s_block.jpg)
+![block](Resources/s_block.jpg)
 
 
 ### Pin Definitions
@@ -62,7 +62,7 @@ git clone https://github.com/efabless/caravel_board.git
 
 ### Programming Flow
 
-![block](resources/flow.jpg)
+![block](Resources/flow.jpg)
 
 ## Appendix A: Running gpio_test
 
@@ -85,62 +85,63 @@ $ sudo make flash
 The script should flash the board and complete with the message in Note 1.
 This should result in `L1`, `L2`, and `GPIO Led` blinking with a frequency of 2Hz
 
-> **Note** 1
+>**Note** 1
+```
+python3 ../util/caravel_hkflash.py gpio_test.hex
+Success: Found one matching FTDI device at ftdi://ftdi:232h:1:a/1
+ 
+Caravel data:
+   mfg        = 0456
+   product    = 11
+   project ID = 00000000
+ 
+Resetting Flash...
+status = 0x00
+ 
+JEDEC = b'ef4016'
+Erasing chip...
+done
+status = 0x0
+setting address to 0x0
+addr 0x0: flash page write successful
+addr 0x100: flash page write successful
+addr 0x200: flash page write successful
+addr 0x300: flash page write successful
+addr 0x400: flash page write successful
+addr 0x500: flash page write successful
+addr 0x600: flash page write successful
+addr 0x700: flash page write successful
+addr 0x800: flash page write successful
+setting address to 0x900
+addr 0x900: flash page write successful
 
->python3 ../util/caravel_hkflash.py gpio_test.hex
->Success: Found one matching FTDI device at ftdi://ftdi:232h:1:a/1
-> 
->Caravel data:
->   mfg        = 0456
->   product    = 11
->   project ID = 00000000
-> 
->Resetting Flash...
->status = 0x00
-> 
->JEDEC = b'ef4016'
->Erasing chip...
->done
->status = 0x0
->setting address to 0x0
->addr 0x0: flash page write successful
->addr 0x100: flash page write successful
->addr 0x200: flash page write successful
->addr 0x300: flash page write successful
->addr 0x400: flash page write successful
->addr 0x500: flash page write successful
->addr 0x600: flash page write successful
->addr 0x700: flash page write successful
->addr 0x800: flash page write successful
->setting address to 0x900
->addr 0x900: flash page write successful
->
->total_bytes = 2552
->status reg_1 = 0x0
->status reg_2 = 0x2
->************************************
->verifying...
->************************************
->status reg_1 = 0x0
->status reg_2 = 0x2
->setting address to 0x0
->addr 0x0: read compare successful
->addr 0x100: read compare successful
->addr 0x200: read compare successful
->addr 0x300: read compare successful
->addr 0x400: read compare successful
->addr 0x500: read compare successful
->addr 0x600: read compare successful
->addr 0x700: read compare successful
->addr 0x800: read compare successful
->setting address to 0x900
->addr 0x900: read compare successful
->
->total_bytes = 2552
->pll_trim = b'00'
->
->python3 ../util/caravel_hkstop.py
->Success: Found one matching FTDI device at ftdi://ftdi:232h:1:a/1
+total_bytes = 2552
+status reg_1 = 0x0
+status reg_2 = 0x2
+************************************
+verifying...
+************************************
+status reg_1 = 0x0
+status reg_2 = 0x2
+setting address to 0x0
+addr 0x0: read compare successful
+addr 0x100: read compare successful
+addr 0x200: read compare successful
+addr 0x300: read compare successful
+addr 0x400: read compare successful
+addr 0x500: read compare successful
+addr 0x600: read compare successful
+addr 0x700: read compare successful
+addr 0x800: read compare successful
+setting address to 0x900
+addr 0x900: read compare successful
+
+total_bytes = 2552
+pll_trim = b'00'
+
+python3 ../util/caravel_hkstop.py
+Success: Found one matching FTDI device at ftdi://ftdi:232h:1:a/1
+```
 
 ## Appendix B: Caravel Register Map
 
