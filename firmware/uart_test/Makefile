@@ -10,7 +10,7 @@ INCLUDES=-I$(shell pwd) -I../includes/
 
 .SUFFIXES:
 
-PATTERN = gpio_test
+PATTERN = uart_test
 
 hex:  ${PATTERN:=.hex}
 
@@ -35,7 +35,7 @@ check: gpio_config_def.py gpio_config_io.py gpio_config_data.c
 	$(TOOLCHAIN_PATH)$(TOOLCHAIN_PREFIX)-unknown-elf-objcopy -O binary $< $@
 
 
-flash: gpio_test.hex
+flash: uart_test.hex
 	python3 ../util/caravel_hkflash.py $<
 	python3 ../util/caravel_hkstop.py
 
