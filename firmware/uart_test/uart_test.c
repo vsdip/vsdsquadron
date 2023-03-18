@@ -1,10 +1,6 @@
 #include "../includes/defs.h"
 #include "../includes/gpio_config/gpio_config_io.c"
 
-// --------------------------------------------------------
-// Firmware routines
-// --------------------------------------------------------
-
 void set_registers() {
 
     reg_mprj_io_5 = GPIO_MODE_MGMT_STD_INPUT_NOPULL; // Rx
@@ -12,16 +8,47 @@ void set_registers() {
 
 }
 
+void write_data(char *data) {   
+    int index = 0;
+    while (data[index] != '\0') {
+        reg_uart_data = data[index];
+        while (reg_uart_txfull == 1) {
+            /* Do nothing */
+        }
+        delay(5000);
+        index++;
+    }
+}
+
+
+
+// void read_data(char *buf, int size) {
+//     int index = 0;
+//     char c;
+//     while (index < size - 1) {
+//         while (reg_uart_rxempty == 1) {
+//             /* Do nothing */
+//         }
+//         c = reg_uart_data;
+//         if (c == '\r' || c == '\n') {
+//             break;
+//         }
+//         buf[index] = c;
+//         index++;
+//     }
+//     buf[index] = '\0';
+// }
+
 void main()
 {
-    int i;
+    
     reg_gpio_mode1 = 1;
     reg_gpio_mode0 = 0;
     reg_gpio_ien = 1;
     reg_gpio_oe = 1;
 
     #ifdef reg_uart_clkdiv
-    reg_uart_clkdiv=10417; // If the speed is 12.5MHz then this would give 9600 baud
+        reg_uart_clkdiv=10417; // If the speed is 12.5MHz then this would give 9600 baud
     #endif
     reg_uart_enable=1;
 
@@ -32,42 +59,19 @@ void main()
     reg_mprj_datal = 0;
     gpio_config_io();
 
-    //reg_gpio_out = 1; // OFF
-    //    print("Hello World");
- 
-    // while(1)
-    // {
-    //   //reg_gpio_out=0;
- 
-    //   for(i='A'; i<='Z'; i++)
-    //   {
-    //     reg_uart_data=i;
-    //     while(reg_uart_txfull==1) /* do nothing */ ;
-    //     delay(5000);
-    //   }
+    // char buf[100];
 
-      //reg_gpio_out=1;
-      //delay(5000);
-    // }
-
-    char data[] = "Hello from VSDSQUADRON";
-    int index = 0;
     while(1)
     {
-      
-    //   for(i='A'; i<='Z'; i++)
-    //   {
-    //     reg_uart_data=i;
-    //     while(reg_uart_txfull==1) /* do nothing */ ;
-    //     delay(5000);
-    //   }
+        char data[] = "Hello from VSDSQUADRON";
 
-        for (index = 0; index < 23; index++) {
-            // Write the current character to the register
-            reg_uart_data = data[index];
-            while(reg_uart_txfull==1) /* do nothing */ ;
-                delay(5000);
-        }
+        // write_data(data);
+        // write_data("\nPlease enter an input: ");
+        // read_data(buf, 100);
+
+        // write_data("The entered data is ");
+        // write_data(buf);
+        // write_data("\n");
     }
 
 }
