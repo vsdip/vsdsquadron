@@ -20,25 +20,6 @@ void write_data(char *data) {
     }
 }
 
-
-
-// void read_data(char *buf, int size) {
-//     int index = 0;
-//     char c;
-//     while (index < size - 1) {
-//         while (reg_uart_rxempty == 1) {
-//             /* Do nothing */
-//         }
-//         c = reg_uart_data;
-//         if (c == '\r' || c == '\n') {
-//             break;
-//         }
-//         buf[index] = c;
-//         index++;
-//     }
-//     buf[index] = '\0';
-// }
-
 void main()
 {
     
@@ -59,19 +40,13 @@ void main()
     reg_mprj_datal = 0;
     gpio_config_io();
 
-    // char buf[100];
+    char data[] = "Hello from VSDSQUADRON";
 
     while(1)
     {
-        char data[] = "Hello from VSDSQUADRON";
 
-        // write_data(data);
-        // write_data("\nPlease enter an input: ");
-        // read_data(buf, 100);
+        write_data(data);
 
-        // write_data("The entered data is ");
-        // write_data(buf);
-        // write_data("\n");
     }
 
 }
