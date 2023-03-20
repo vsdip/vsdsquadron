@@ -144,7 +144,13 @@ Success: Found one matching FTDI device at ftdi://ftdi:232h:1:a/1
 
 ## Appendix B: Transmitting data over UART
 
+### Installing and running serial terminal to see messages 
 
+```
+sudo apt install putty
+```
+
+### Flashing UART code and viewing data
 ```
 $ cd vsdsquadron_software/firmware/uart_test
 $ make
@@ -157,3 +163,6 @@ $ make
 ```
 $ sudo make flash
 ```
+
+- Connect J3 & Power Cycle the board ( Turn off and then Turn On)
+- Open serial terminal to see the message `Hello from VSDSQUADRON`
