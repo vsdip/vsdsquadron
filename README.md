@@ -25,19 +25,23 @@
 | J4  | UART Header  |
 | J5  | FLASH Header  |
 | J10  | User LED Input  |
-| Caravel brakout | Content Cell  |
+| Caravel brakout | Direct connection to Caravel IC  |
 
+- User can connect the user GPIO Led pin to any caravel pin to see the output
 
 ### LED 
 
-- PWR LED    
-- GPIO LED
-- RX LED
-- TX LED
-- L1
-- L2
-- L3
-- L4
+| LED  | Function |
+| ------------- | ------------- |
+| PWR LED | 3.3V OK |
+| GPIO LED  | Internal GPIO  |
+| RX LED  | FTDI Receive signal |
+| TX LED  | FTDI Transmit signal |
+| L1| Caravel GPIO 0  |
+| L2  | Caravel GPIO 37  |
+| L3 | User GPIO 1 |
+| L4 | User GPIO 2 |
+
 
 ## Programming 
 
@@ -180,3 +184,7 @@ $ sudo make flash
 
 - Connect J3 & Power Cycle the board ( Turn off and then Turn On)
 - Open serial terminal to see the message `Hello from VSDSQUADRON`
+
+## Appendix C: VSDsquadron Memory MAP
+
+WIP
