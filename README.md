@@ -17,18 +17,20 @@
 
 ### Pin Definitions
 
-- J1
-- J2
-- J3
-- J4
-- J5
-- J10
-- Caravel breakout 
+| pin Header  | Function | Active Low/High)
+| ------------- | ------------- |----- |
+| J1  | Caravell clock Enable | Active LOW |
+| J2  | Micro USB Connector  |
+| J3  | UART enable | Active HIGH |
+| J4  | UART Header  |
+| J5  | FLASH Header  |
+| J10  | User LED Input  |
+| Caravel brakout | Content Cell  |
 
 
 ### LED 
 
-- PWR LED
+- PWR LED    
 - GPIO LED
 - RX LED
 - TX LED
@@ -146,8 +148,20 @@ Success: Found one matching FTDI device at ftdi://ftdi:232h:1:a/1
 
 ### Installing and running serial terminal to see messages 
 
+To install picocom 
 ```
-sudo apt install putty
+sudo apt install picocom
+```
+
+Launch picocom using
+```
+picocom -b 9600 /dev/serial/by-id/usb-FTDI_Single_RS232-HS-if00-port0
+```
+- `-b` defines the baud rate
+- `/dev/serial/by-id/usb-FTDI_Single_RS232-HS-if00-port0` is the serial id of the board it can also be found using
+
+```
+ls /dev/serial/by-id/
 ```
 
 ### Flashing UART code and viewing data
