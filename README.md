@@ -72,7 +72,7 @@ GPIO test is a simple script to toggle all the GPIOs on the board. The commands 
 $ cd vsdsquadron_software/firmware/gpio_test
 $ make
 ```
-
+- Make sure Jumper J3 is removed
 - Power off the vsdsquadron
 - Hold the reset button and run power on the device while holding down the button.
 - Run the following command while holding down the button, and after running the command, release the button.
@@ -142,5 +142,18 @@ python3 ../util/caravel_hkstop.py
 Success: Found one matching FTDI device at ftdi://ftdi:232h:1:a/1
 ```
 
-## Appendix B: Caravel Register Map
+## Appendix B: Transmitting data over UART
 
+
+```
+$ cd vsdsquadron_software/firmware/uart_test
+$ make
+```
+- Make sure Jumper J3 is removed
+- Power off the vsdsquadron
+- Hold the reset button and run power on the device while holding down the button.
+- Run the following command while holding down the button, and after running the command, release the button.
+
+```
+$ sudo make flash
+```
