@@ -44,6 +44,6 @@ flash: main.hex
 clean:
 	rm -f *.elf *.hex *.bin *.vvp *.lst *.orig gpio_config_data.*
 	rm -rf __pycache__
-
+	
 .PHONY: clean hex all flash
 
