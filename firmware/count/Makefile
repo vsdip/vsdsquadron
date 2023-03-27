@@ -1,8 +1,4 @@
-
 TOOLCHAIN_PATH=
-#TOOLCHAIN_PATH=/opt/riscv32imc/bin/
-#TOOLCHAIN_PATH=/ef/apps/bin/
-#TOOLCHAIN_PATH=/usr/bin/
 
 TOOLCHAIN_PREFIX=riscv64
 
@@ -10,9 +6,17 @@ INCLUDES=-I$(shell pwd) -I../includes/
 
 .SUFFIXES:
 
-PATTERN = main
+all: check_part setup hex
 
-hex:  ${PATTERN:=.hex}
+check_part:
+ifndef PART
+	$(error "PART not defined.  Please use 'make PART=<part_id>'")
+endif
+
+setup: check_part
+	cp ../includes/gpio_def/gpio_config_def_$(PART).py gpio_config_def.py
+
+hex:  main.hex
 
 gpio_config_data.c: gpio_config_def.py gpio_config_io.py
 	python3 ../includes/gpio_config/gpio_config_builder.py
@@ -34,16 +38,18 @@ check: gpio_config_def.py gpio_config_io.py gpio_config_data.c
 %.bin: %.elf
 	$(TOOLCHAIN_PATH)$(TOOLCHAIN_PREFIX)-unknown-elf-objcopy -O binary $< $@
 
+# ---- Flash ----
 
 flash: main.hex
 	python3 ../util/caravel_hkflash.py $<
 	python3 ../util/caravel_hkstop.py
 
+
 # ---- Clean ----
 
 clean:
-	rm -f *.elf *.hex *.bin *.vvp *.lst *.orig gpio_config_data.*
+	rm -f *.elf *.hex *.bin *.vvp *.lst *.orig gpio_config_data.* gpio_config_def.py
 	rm -rf __pycache__
 	
-.PHONY: clean hex all flash
+.PHONY: clean hex all flash setup
 
