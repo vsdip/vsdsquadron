@@ -52,6 +52,9 @@
 
 ```
 sudo apt-get install libusb-1.0 libusb-1.0-0-dev
+sudo pip3 uninstall setuptools
+sudo apt-get install python3-setuptools
+sudo pip3 install pyftdi
 ```
 
 - Install the riscv toolchain from:
