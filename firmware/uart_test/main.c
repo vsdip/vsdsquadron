@@ -2,7 +2,6 @@
 
 void main()
 {
-	init();
 	init_uart();
 
 	char data[] = "Hello from VSDSQUADRON";
