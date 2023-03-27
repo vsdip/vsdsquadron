@@ -10,7 +10,7 @@ INCLUDES=-I$(shell pwd) -I../includes/
 
 .SUFFIXES:
 
-PATTERN = uart_test
+PATTERN = main
 
 hex:  ${PATTERN:=.hex}
 
@@ -35,7 +35,7 @@ check: gpio_config_def.py gpio_config_io.py gpio_config_data.c
 	$(TOOLCHAIN_PATH)$(TOOLCHAIN_PREFIX)-unknown-elf-objcopy -O binary $< $@
 
 
-flash: uart_test.hex
+flash: main.hex
 	python3 ../util/caravel_hkflash.py $<
 	python3 ../util/caravel_hkstop.py
 
@@ -43,6 +43,7 @@ flash: uart_test.hex
 
 clean:
 	rm -f *.elf *.hex *.bin *.vvp *.lst *.orig gpio_config_data.*
+	rm -rf __pycache__
 
 .PHONY: clean hex all flash
 

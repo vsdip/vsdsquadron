@@ -1,12 +1,8 @@
-#include "../includes/defs.h"
-#include "../includes/gpio_config/gpio_config_io.c"
+#include "defs.h"
+#include "gpio_config/gpio_config_io.c"
 
-// --------------------------------------------------------
-// Firmware routines
-// --------------------------------------------------------
-
-void set_registers() {
-
+void set_registers()
+{
     reg_mprj_io_0 = GPIO_MODE_MGMT_STD_ANALOG;
     reg_mprj_io_1 = GPIO_MODE_MGMT_STD_OUTPUT;
     reg_mprj_io_2 = GPIO_MODE_MGMT_STD_OUTPUT;
@@ -46,10 +42,24 @@ void set_registers() {
     reg_mprj_io_35 = GPIO_MODE_MGMT_STD_OUTPUT;
     reg_mprj_io_36 = GPIO_MODE_MGMT_STD_OUTPUT;
     reg_mprj_io_37 = GPIO_MODE_MGMT_STD_OUTPUT;
-
 }
 
-void main()
+void write_data(char *data)
+{
+    int index = 0;
+    while (data[index] != '\0')
+    {
+        reg_uart_data = data[index];
+        while (reg_uart_txfull == 1)
+        {
+            /* Do nothing */
+        }
+        delay(5000);
+        index++;
+    }
+}
+
+void init()
 {
     reg_gpio_mode1 = 1;
     reg_gpio_mode0 = 0;
@@ -60,25 +70,10 @@ void main()
     reg_mprj_datah = 0;
     reg_mprj_datal = 0;
     gpio_config_io();
+}
 
-    reg_gpio_out = 1; // OFF
-
-	while(1) {
-
-        reg_mprj_datal = 0x00000000;
-        reg_mprj_datah = 0x00000000;
-
-        reg_gpio_out = 0x0;
-
-        delay(1000000);
-
-        reg_mprj_datal = 0xffffffff;
-        reg_mprj_datah = 0xffffffff;
-
-        reg_gpio_out = 0x1;
-
-        delay(1000000);
-
-	}
-
+void init_uart()
+{
+    reg_uart_enable = 1;
+    reg_mprj_xfer = 1;
 }
