@@ -79,7 +79,7 @@ GPIO test is a simple script to toggle all the GPIOs on the board. The commands 
 
 ```
 $ cd vsdsquadron_software/firmware/gpio_test
-$ make
+$ make PART=<part_id>
 ```
 - Make sure Jumper J3 is removed
 - Power off the vsdsquadron
@@ -174,7 +174,7 @@ ls /dev/serial/by-id/
 ### Flashing UART code and viewing data
 ```
 $ cd vsdsquadron_software/firmware/uart_test
-$ make
+$ make PART=<part_id>
 ```
 - Make sure Jumper J3 is removed
 - Power off the vsdsquadron
