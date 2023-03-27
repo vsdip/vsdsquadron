@@ -9,6 +9,13 @@ void main()
 
 	while (1)
 	{
-		write_data(data);
+		char count_to = 9;
+
+		for (int i = 0; i <= count_to; i++)
+		{
+			write_data(count_to);
+		}
+
+		
 	}
 }
