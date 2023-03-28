@@ -188,6 +188,46 @@ $ sudo make flash
 - Connect J3 & Power Cycle the board ( Turn off and then Turn On)
 - Open serial terminal to see the message `Hello from VSDSQUADRON`
 
-## Appendix C: VSDsquadron Memory MAP
+## Appendix C: Important VSDsquadron Registers
 
-WIP
+### GPIO 
+reg_gpio_mode1 
+reg_gpio_mode0 
+reg_gpio_ien 
+reg_gpio_oe 
+reg_gpio_in 
+reg_gpio_out 
+
+### UART 
+reg_uart_data
+reg_uart_txfull  
+reg_uart_rxempty   
+reg_uart_enable
+reg_uart_irq_en    
+
+### User Project Control 
+reg_mprj_xfer 
+reg_mprj_pwr  
+reg_mprj_irq  
+reg_mprj_datal 
+reg_mprj_datah 
+
+reg_mprj_io_0 
+.
+.
+reg_mprj_io_37 
+
+### GPIO mode values
+- GPIO_MODE_MGMT_STD_INPUT_PULLDOWN
+- GPIO_MODE_MGMT_STD_INPUT_PULLUP	 
+- GPIO_MODE_MGMT_STD_BIDIRECTIONAL 
+- GPIO_MODE_USER_STD_INPUT_PULLDOWN
+- GPIO_MODE_USER_STD_INPUT_PULLUP	 
+- GPIO_MODE_USER_STD_OUTPUT	     
+- GPIO_MODE_USER_STD_BIDIRECTIONAL 
+- GPIO_MODE_USER_STD_OUT_MONITORED 
+- GPIO_MODE_MGMT_STD_INPUT_NOPULL	  
+- GPIO_MODE_MGMT_STD_OUTPUT	      
+- GPIO_MODE_MGMT_STD_ANALOG	      
+- GPIO_MODE_USER_STD_INPUT_NOPULL	  
+- GPIO_MODE_USER_STD_ANALOG	      
