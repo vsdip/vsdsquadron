@@ -205,10 +205,7 @@ $ sudo make flash
 - `reg_uart_enable`    - Enable UART
 
 ### User Project Control 
-- `reg_mprj_xfer`    -
-- `reg_mprj_pwr`     -
-- `reg_mprj_irq`     -
-
+- `reg_mprj_xfer`    - GPIO configuration control register
 - `reg_mprj_datal`   - GPIO I/O value of GPIO[31] to GPIO[0]
 - `reg_mprj_datah`   - GPIO I/O value of GPIO[37] to GPIO[32]
 
@@ -221,6 +218,7 @@ $ sudo make flash
 Each GPIO can be configured to a specific functionality using the reg_mprj_io_<pin> register. 
 
 `reg_mprj_io_0`
+.
 .
 .
 `reg_mprj_io_37` 

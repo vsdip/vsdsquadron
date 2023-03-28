@@ -87,8 +87,8 @@ void init_uart()
     #ifdef reg_uart_clkdiv
         reg_uart_clkdiv=10417; // If the speed is 12.5MHz then this would give 9600 baud
     #endif
-    reg_uart_enable=1;
 
+    reg_uart_enable=1;
     reg_mprj_xfer = 1; 
 
     reg_mprj_io_5 = GPIO_MODE_MGMT_STD_INPUT_NOPULL; // Rx
