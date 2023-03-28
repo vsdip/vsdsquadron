@@ -45,6 +45,22 @@ void set_registers()
     reg_mprj_io_37 = GPIO_MODE_MGMT_STD_OUTPUT;
 }
 
+void init()
+{
+    reg_gpio_mode1 = 1;
+    reg_gpio_mode0 = 0;
+    reg_gpio_ien = 1;
+    reg_gpio_oe = 1;
+
+    set_registers();
+    reg_mprj_datah = 0;
+    reg_mprj_datal = 0;
+    gpio_config_io();
+}
+
+
+// ---------UART--------------
+
 void write_data(char *data)
 {
     int index = 0;
@@ -60,18 +76,6 @@ void write_data(char *data)
     }
 }
 
-void init()
-{
-    reg_gpio_mode1 = 1;
-    reg_gpio_mode0 = 0;
-    reg_gpio_ien = 1;
-    reg_gpio_oe = 1;
-
-    set_registers();
-    reg_mprj_datah = 0;
-    reg_mprj_datal = 0;
-    gpio_config_io();
-}
 
 void init_uart()
 {
