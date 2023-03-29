@@ -1,6 +1,6 @@
-# vsdsquadron documentation
+# VSDSQUADRON Documentation
 
-
+**VSDSQUADRON** is a powerful RISC-V development board that utilizes the MPW2 chips. This board is equipped with a range of useful features, including GPIO, UART, and SPI, making it ideal for a variety of development projects. With a clock speed of 10 MHz, the VSDSQUADRON can handle complex computations and data processing tasks with ease. Additionally, this development board has four leds for output, providing even greater flexibility and versatility. 
 
 ## Mechanical Overview
 
@@ -13,7 +13,6 @@
 
 ### Block diagram
 ![block](Resources/s_block.jpg)
-
 
 ### Pin Definitions
 
@@ -34,14 +33,15 @@
 | LED  | Function |
 | ------------- | ------------- |
 | PWR LED | 3.3V OK |
-| GPIO LED  | Internal GPIO  |
+| GPIO LED  | Management GPIO  |
 | RX LED  | FTDI Receive signal |
 | TX LED  | FTDI Transmit signal |
 | L1| Caravel GPIO 0  |
 | L2  | Caravel GPIO 37  |
 | L3 | User GPIO 1 |
 | L4 | User GPIO 2 |
-
+ 
+ > The two User GPIO can be connected to any of the 38 GPIO via Jumper cables according to the required application.
 
 ## Programming 
 
@@ -191,12 +191,12 @@ $ sudo make flash
 ## Appendix C: Important VSDsquadron Registers
 
 ### GPIO 
-- `reg_gpio_mode1` -
-- `reg_gpio_mode0` - 
-- `reg_gpio_ien`   - Internal GPIO output enable
-- `reg_gpio_oe`    - Internal GPIO input enable
-- `reg_gpio_in`    - Internal GPIO input
-- `reg_gpio_out`   - Internal GPIO output
+- `reg_gpio_mode1` - Management GPIO drive strength Configuration
+- `reg_gpio_mode0` - Management GPIO drive strength Configuration
+- `reg_gpio_ien`   - Management GPIO output enable
+- `reg_gpio_oe`    - Management GPIO input enable
+- `reg_gpio_in`    - Management GPIO input
+- `reg_gpio_out`   - Management GPIO output
 
 ### UART 
 - `reg_uart_data`      - Rx/Tx data
