@@ -2,21 +2,20 @@
 
 void main()
 {
-	init();
+	init(); // Initialise VSDsquadron
 
 	while (1)
 	{
+		reg_gpio_out = 0x0;			 // Management gpio High
+		reg_mprj_datal = 0x00000000; // GPIO0 - GPIO31 High
+		reg_mprj_datah = 0x00000000; // GPIO32 - GPIO37 High
 
-		reg_mprj_datal = 0x00000000;
-		reg_mprj_datah = 0x00000000;
-		reg_gpio_out = 0x0;
+		delay(1000000); // Delay 1 Second
 
-		delay(1000000);
+		reg_gpio_out = 0x1;			 // Management gpio Low
+		reg_mprj_datah = 0xffffffff; // GPIO0 - GPIO31 Low
+		reg_mprj_datal = 0xffffffff; // GPIO32 - GPIO37 Low
 
-		reg_mprj_datal = 0xffffffff;
-		reg_mprj_datah = 0xffffffff;
-		reg_gpio_out = 0x1;
-
-		delay(1000000);
+		delay(1000000); // Delay 1 Second
 	}
 }
