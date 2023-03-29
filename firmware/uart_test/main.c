@@ -4,7 +4,7 @@ void main()
 {
 	init_uart();
 
-	char data[] = "Hello from VSDSQUADRON";
+	char data[] = "Hello from VSDSQUADRON\n";
 
 	while (1)
 	{
