@@ -26,8 +26,6 @@
 | J10  | User LED Input  |
 | Caravel brakout | Direct connection to Caravel IC  |
 
-- User can connect the user GPIO Led pin to any caravel pin to see the output
-
 ### LED 
 
 | LED  | Function |
@@ -41,7 +39,7 @@
 | L3 | User GPIO 1 |
 | L4 | User GPIO 2 |
  
- > The two User GPIO can be connected to any of the 38 GPIO via Jumper cables according to the required application.
+ > The two User GPIO can be connected to any of the 38 GPIO via Jumper cables (J10) according to the required application.
 
 ## Programming 
 
