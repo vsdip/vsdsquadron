@@ -5,9 +5,9 @@
 ## Mechanical Overview
 
 ### Top view
-![top](Resources/s_top.jpg)
+![top](Resources/s_top.png)
 ### Bottom view
-![bot](Resources/s_bot.jpg)
+![bot](Resources/s_bot.png)
 
 ## Functional Overview
 
