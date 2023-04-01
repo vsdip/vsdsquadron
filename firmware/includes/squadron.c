@@ -57,6 +57,12 @@ void init()
     gpio_config_io();
 }
 
+void display(int count) // Function to display the data on the four Led's
+{
+    count = ~count;                                             // Invert count as Led's are Active Low
+    reg_mprj_datal = ((count >> 1) & 0xfffffffe) | (count & 1); // Shift data to be accurately displayed on GPIO1 and GPIO2
+    reg_mprj_datah = count << 4;                                // Shift data to be accurately displayed on GPIO37 (reg_mprj_datah bit 6)
+}
 // ---------UART--------------
 
 void init_uart()
@@ -68,10 +74,10 @@ void init_uart()
     reg_gpio_oe = 1;
     reg_gpio_out = 0x1; // Management gpio Low
 
-    // UART Clock Configuration
-    #ifdef reg_uart_clkdiv
-        reg_uart_clkdiv = 10417; // If the speed is 12.5MHz then this would give 9600 baud
-    #endif
+// UART Clock Configuration
+#ifdef reg_uart_clkdiv
+    reg_uart_clkdiv = 10417; // If the speed is 12.5MHz then this would give 9600 baud
+#endif
 
     // UART PIN Configuration
 
