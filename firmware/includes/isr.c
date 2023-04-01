@@ -4,7 +4,7 @@
 #include <csr.h>
 #include <soc.h>
 #include <irq_vex.h>
-#include <uart.h>
+//#include <uart.h>
 #include <defs.h>
 
 //void isr(void);
