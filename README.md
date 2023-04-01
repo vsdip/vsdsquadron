@@ -2,6 +2,16 @@
 
 **VSDSQUADRON** is a powerful RISC-V development board that utilizes the MPW2 chips. This board is equipped with a range of useful features, including GPIO, UART, and SPI, making it ideal for a variety of development projects. With a clock speed of 10 MHz, the VSDSQUADRON can handle complex computations and data processing tasks with ease. Additionally, this development board has four leds for output, providing even greater flexibility and versatility. 
 
+## Features
+
+- Caravel MPW2 chip with VexRISC V processor
+- 10 Mhz External Oscillator
+- 38 General purpose Input Output pins
+- UART
+- SPI
+- 4Mb External Flash
+- USB Programming support over FTDI
+
 ## Mechanical Overview
 
 ### Top view
