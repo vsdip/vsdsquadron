@@ -17,6 +17,6 @@ void main()
 
 		data = (~data) & 0x00000001;
 
-		reg_mprj_datal = reg_mprj_datal ^ data;
+		reg_mprj_datal = reg_mprj_datal | data;
 	}
 }

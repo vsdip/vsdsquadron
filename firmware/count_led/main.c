@@ -1,5 +1,7 @@
 #include "../includes/squadron.c"
 
+// GPIO 0,37,1,2
+
 void main()
 {
 	init();						 // Initialize VSDSquadron
