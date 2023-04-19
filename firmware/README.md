@@ -4,7 +4,7 @@
 - count_led :- 4 bit binary up counter on GPIO 0,37,1,2
 - sevseg :- 4 bit up counter on seven segment led
 - uart_test :- sends characters over UART
-- ir_sense :- code to toggle GPIO0 based on data from IR sensor on GPIO1
+- line_follower :- Line following robot
 
 
 - includes :- Required dependencies for compiling code 

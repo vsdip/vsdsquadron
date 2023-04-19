@@ -13,8 +13,8 @@ C_USER_IN_NOPULL = 7
 C_USER_OUT = 8
 
 config_h = [
-    C_MGMT_OUT,  #37
-    C_MGMT_OUT,  #36
+    C_MGMT_IN,  #37
+    C_MGMT_IN,  #36
     C_MGMT_OUT,  #35
     C_MGMT_OUT,  #34
     C_MGMT_OUT,  #33
