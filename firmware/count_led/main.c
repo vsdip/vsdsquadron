@@ -1,3 +1,10 @@
+/*
+Title: count_led
+Description: 4 bit binary up counter on onboard GPIO 0,37,1,2
+Date: 2023-04-24
+Author: Yatharth
+License: MIT License
+*/
 #include "../includes/squadron.c"
 
 // GPIO 0,37,1,2

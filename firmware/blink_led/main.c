@@ -1,3 +1,11 @@
+/*
+Title: blink_led
+Description: Toggles all GPIOs at a specified frequency
+Date: 2023-04-24
+Author: Yatharth
+License: MIT License
+*/
+
 #include "../includes/squadron.c"
 
 void main()
