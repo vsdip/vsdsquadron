@@ -1,3 +1,11 @@
+/*
+Title: line_follower
+Description: Line following robot
+Date: 2023-04-24
+Author: Yatharth
+License: MIT License
+*/
+
 #include "../includes/defs.h"
 #include "../includes/gpio_config/gpio_config_io.c"
 

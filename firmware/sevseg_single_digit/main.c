@@ -1,3 +1,11 @@
+/*
+Title: sevseg_single_digit 
+Description: 4 bit up counter on single digit seven segment display
+Date: 2023-04-24
+Author: Yatharth
+License: MIT License
+*/
+
 #include "../includes/squadron.c"
 
 /*##########################################################################

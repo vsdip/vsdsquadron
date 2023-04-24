@@ -1,3 +1,11 @@
+/*
+Title: uart_test
+Description: Sends characters over UART
+Date: 2023-04-24
+Author: Yatharth
+License: MIT License
+*/
+
 #include "../includes/squadron.c"
 
 void main()
