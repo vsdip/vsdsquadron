@@ -2,6 +2,7 @@
 
 - blink_led :- Toggles all GPIOs at a specified frequency
 - count_led :- 4 bit binary up counter on GPIO 0,37,1,2
+- servo_test :- Rotation of servo motor - sending PWM signal through software
 - sevseg_single_digit :- 4 bit up counter on single digit seven segment display
 - uart_test :- sends characters over UART
 - line_follower :- Line following robot
