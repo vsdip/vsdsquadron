@@ -25,21 +25,11 @@
 - 4Mb External Flash
 - USB Programming support over FTDI
 
-## Mechanical Overview
-
-### Top view
-
-![top](Resources/s_top.png)
-
-### Bottom view
-
-![bot](Resources/s_bot.png)
-
 ## Functional Overview
 
 ### Block diagram
 
-![block](Resources/s_block.jpg)
+![block](../Resources/s_block.jpg)
 
 ### Pin Definitions
 
@@ -95,7 +85,7 @@ git clone <https://github.com/yathAg/vsdsquadron_software.git>
 
 ### Programming Flow
 
-![block](Resources/flow.jpg)
+![block](../Resources/flow.jpg)
 
 ## Appendix A: Running gpio_test
 
