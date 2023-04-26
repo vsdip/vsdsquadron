@@ -1,6 +1,6 @@
 /*
-Title: line_follower
-Description: Line following robot
+Title: relay_test
+Description: Ir sensor to toggle led.
 Date: 2023-04-24
 Author: Yatharth
 License: MIT License
@@ -71,29 +71,21 @@ void main()
     // 0 LED
     // 37 input
 
-    int output = 0;
+    int output = 1;
     int input = 0;
+    int latch = 0;
 
     while (1)
     {
-        input = (reg_mprj_datal >> 5) & 0x00000001;
-        
-        if (input == 1 & latch == 0)
+        input = (reg_mprj_datah >> 5) & 0x00000001;
+        if (input != latch)
         {
-            latch = 1;
-        }
-        if (latch == 1 & output == 0)
-        {
-            reg_mprj_datal = output << 5;
-        }
-        if (latch == 1 & output == 1)
-        {
-            reg_mprj_datal = ~output << 5;
-        }
-        if (input == 0 & latch == 1)
-        {
-            latch = 0;
-            output = output;
+            latch = input;
+            if (input == 1)
+            {
+                output = (output == 0) ? 1 : 0;
+                reg_mprj_datal = output;
+            }
         }
     }
 }
