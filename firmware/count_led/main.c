@@ -20,7 +20,7 @@ void main()
 
 	while (1)
 	{
-
+		// display_new(count);
 		display(count);
 		count++;
 		delay(5000000);
