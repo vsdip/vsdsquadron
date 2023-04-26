@@ -2,7 +2,7 @@
 Title: servo_test
 Description: Rotation of servo motor - sending PWM signal through software
 Date: 2023-04-24
-Author: Bala Dhinesh 
+Author: Bala Dhinesh & Gokul C
 License: MIT License
 */
 
