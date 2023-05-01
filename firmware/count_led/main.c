@@ -20,8 +20,8 @@ void main()
 
 	while (1)
 	{
-
-		display(count);
+		// display_new(count); // Uncomment for V2 Board ( Black Button )
+		// display(count);     // Uncomment for V1 Board ( Red Button)
 		count++;
 		delay(5000000);
 	}

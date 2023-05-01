@@ -2,7 +2,7 @@
 Title: sevseg_four_digit
 Description: up counter on four digit seven segment display
 Date: 2023-04-24
-Author: Yatharth
+Author: Yatharth & Gokul C
 License: MIT License
 */
 
@@ -108,35 +108,34 @@ void main()
 	int b = 0;
 	int c = 0;
 	int d = 0;
-
-	// while (1)
-	// {
-	// 	for (int i = 1; i < 5; i++)
-	// 	{
-	// 		for (int j = 0; j < 16; j++)
-	// 		{
-	// 			sevseg(j, i);
-	// 			delay(5000000);
-	// 		}
-	// 	}
-	// }
+	int k = 0;
 
 	while (1)
 	{
-		a = count / 1000;
-		b = (count % 1000) / 100;
-		c = (count % 100) / 10;
-		d = count % 10;
-		for (int k; k < 1000; k++)
+
+		for (k = 0; k < 100; k++)
 		{
 			sevseg(a, 4);
-			delay(10000);
+			delay(100);
 			sevseg(b, 3);
-			delay(10000);
-			sevseg(c, 3);
-			delay(10000);
+			delay(100);
+			sevseg(c, 2);
+			delay(100);
 			sevseg(d, 1);
-			delay(10000);
+			delay(100);
+		}
+		c += 1;
+		if (c > 9)
+		{
+			b += 1;
+			c = 0;
+			if (b > 9)
+			{
+				a += 1;
+				b = 0;
+				if (a > 9)
+					a = 0;
+			}
 		}
 
 		count++;
