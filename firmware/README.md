@@ -1,26 +1,18 @@
 # Firmware
 
+- _includes :- Required dependencies for compiling code
+- _util :- Required code for flashing to Caravel and interfacing housekeeping SPI
+- _config :- Required for generating board configuration files
+
 - blink_led :- Toggles all GPIOs at a specified frequency
 - count_led :- 4 bit binary up counter on GPIO 0,37,1,2
-<<<<<<< HEAD
 - delay_test :- Code to test the delay function
-- line_follower :- Line following robot
-- sevseg_four_digit :- Up counter on four digit seven segment display
-- sevseg_single_digit :- 4 bit up counter on single digit seven segment display
-- uart_test :- Sends characters over UART
-
-
-
-=======
 - line_follower :- Line following robot
 - relay_test :- Ir sensor to toggle led
 - servo_test :- Rotation of servo motor - sending PWM signal through software
 - sevseg_single_digit :- 4 bit up counter on single digit seven segment display
 - sevseg_four_digit :- up counter on four digit seven segment display
 - uart_test :- sends characters over UART
-
-- includes :- Required dependencies for compiling code
-- util :- Required code for flashing to Caravel and interfacing housekeeping SPI
 
 ## VSDSQUADRON Documentation
 
@@ -264,7 +256,6 @@ reg_mprj_io_0 = GPIO_MODE_MGMT_STD_BIDIRECTIONAL //sets GPIO0 to bidirectional p
 ```
 
 ### GPIO mode values
->>>>>>> ec5bf0353f4343fc41d4b438acd0cfdc893db096
 
 - GPIO_MODE_MGMT_STD_INPUT_PULLDOWN
 - GPIO_MODE_MGMT_STD_INPUT_PULLUP  
