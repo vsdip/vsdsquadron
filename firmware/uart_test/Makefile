@@ -2,7 +2,7 @@ TOOLCHAIN_PATH=
 
 TOOLCHAIN_PREFIX=riscv64
 
-INCLUDES=-I$(shell pwd) -I../includes/ 
+INCLUDES=-I$(shell pwd) -I../_includes/ 
 
 .SUFFIXES:
 
@@ -14,21 +14,21 @@ ifndef PART
 endif
 
 setup: check_part
-	cp ../includes/gpio_def/gpio_config_def_$(PART).py gpio_config_def.py
+	cp ../_includes/gpio_def/gpio_config_def_$(PART).py gpio_config_def.py
 
 hex:  main.hex
 
 gpio_config_data.c: gpio_config_def.py gpio_config_io.py
-	python3 ../includes/gpio_config/gpio_config_builder.py
+	python3 ../_includes/gpio_config/gpio_config_builder.py
 
 sim: gpio_config_def.py gpio_config_io.py gpio_config_data.c
-	python3 ../includes/gpio_config/gpio_config_simulator.py
+	python3 ../_includes/gpio_config/gpio_config_simulator.py
 
 check: gpio_config_def.py gpio_config_io.py gpio_config_data.c
-	python3 ../includes/gpio_config/gpio_config_checker.py
+	python3 ../_includes/gpio_config/gpio_config_checker.py
 
-%.elf: %.c ../includes/sections.lds ../includes/crt0_vex.S gpio_config_data.c
-	$(TOOLCHAIN_PATH)$(TOOLCHAIN_PREFIX)-unknown-elf-gcc $(INCLUDES) -O0 -mabi=ilp32 -march=rv32i -D__vexriscv__ -Wl,-Bstatic,-T,../includes/sections.lds,--strip-debug -ffreestanding -nostdlib -o $@ ../includes/crt0_vex.S ../includes/isr.c $<
+%.elf: %.c ../_includes/sections.lds ../_includes/crt0_vex.S gpio_config_data.c
+	$(TOOLCHAIN_PATH)$(TOOLCHAIN_PREFIX)-unknown-elf-gcc $(INCLUDES) -O0 -mabi=ilp32 -march=rv32i -D__vexriscv__ -Wl,-Bstatic,-T,../_includes/sections.lds,--strip-debug -ffreestanding -nostdlib -o $@ ../_includes/crt0_vex.S ../_includes/isr.c $<
 	${TOOLCHAIN_PATH}$(TOOLCHAIN_PREFIX)-unknown-elf-objdump -D $@ > $*.lst
 
 %.hex: %.elf
@@ -41,8 +41,8 @@ check: gpio_config_def.py gpio_config_io.py gpio_config_data.c
 # ---- Flash ----
 
 flash: main.hex
-	python3 ../util/caravel_hkflash.py $<
-	python3 ../util/caravel_hkstop.py
+	python3 ../_util/caravel_hkflash.py $<
+	python3 ../_util/caravel_hkstop.py
 
 
 # ---- Clean ----

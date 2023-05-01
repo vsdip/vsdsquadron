@@ -7,7 +7,7 @@ License: MIT License
 */
 
 /*
-# Can be found at vsdsquadron_software/firmware/includes/gpio_config/gpio_config_io.c
+# Can be found at vsdsquadron_software/firmware/_includes/gpio_config/gpio_config_io.c
 void delay(const int d)
 {
 
@@ -25,7 +25,7 @@ void delay(const int d)
 }
 */
 
-#include "../includes/squadron.c"
+#include "../_includes/squadron.c"
 
 void main()
 {

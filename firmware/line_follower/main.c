@@ -6,8 +6,8 @@ Author: Yatharth
 License: MIT License
 */
 
-#include "../includes/defs.h"
-#include "../includes/gpio_config/gpio_config_io.c"
+#include "../_includes/defs.h"
+#include "../_includes/gpio_config/gpio_config_io.c"
 
 void set_registers()
 {
