@@ -80,7 +80,7 @@ repl:
 
 # flash micropython firmware image.  this firmware image has been rebuilt to add pins for the Caravel Nucleo Hat
 F746ZG: compile
-	st-flash --connect-under-reset --format ihex write F746ZG_firmware.hex
+	st-flash --connect --format ihex write F746ZG_firmware.hex
 	sleep 5
 	make F746ZG-copy
 
@@ -156,13 +156,11 @@ hex:  ${PATTERN:=.hex}
 
 clean:
 	rm -f *.elf config_io_o.hex *.bin *.vvp config_io_o.lst config_io_o.hex.orig gpio_config_def.py
-	rm -rf __pycache__
-
-clean_nucleo:	
+	rm -rf __pycache__	
 	rm -f *.mpy
 
 ################### copy def file ###################################
-vsd: check_part
+vsd: get_config
 	cp gpio_config_def.py ../_includes/gpio_def/gpio_config_def_$(PART).py
 
 .PHONY: clean image hex copy repl run

@@ -1,8 +1,8 @@
 # Firmware
 
+- _config :- Required for generating board configuration files
 - _includes :- Required dependencies for compiling code
 - _util :- Required code for flashing to Caravel and interfacing housekeeping SPI
-- _config :- Required for generating board configuration files
 
 - blink_led :- Toggles all GPIOs at a specified frequency
 - count_led :- 4 bit binary up counter on GPIO 0,37,1,2
