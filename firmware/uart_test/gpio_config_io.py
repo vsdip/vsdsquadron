@@ -14,47 +14,47 @@ C_USER_OUT = 8
 
 config_h = [
     C_MGMT_OUT,  #37
-    C_MGMT_IN,  #36
-    C_MGMT_IN,  #35
+    C_MGMT_OUT,  #36
+    C_MGMT_OUT,  #35
     C_MGMT_OUT,  #34
-    C_MGMT_IN,  #33
-    C_MGMT_IN,  #32
-    C_MGMT_IN,  #31
+    C_MGMT_OUT,  #33
+    C_MGMT_OUT,  #32
+    C_MGMT_OUT,  #31
     C_MGMT_OUT,  #30
-    C_MGMT_IN,  #29
+    C_MGMT_OUT,  #29
     C_MGMT_OUT,  #28
-    C_MGMT_IN,  #27
+    C_MGMT_OUT,  #27
     C_MGMT_OUT,  #26
-    C_MGMT_IN,  #25
+    C_MGMT_OUT,  #25
     C_MGMT_OUT,  #24
-    C_MGMT_IN,  #23
+    C_MGMT_OUT,  #23
     C_MGMT_OUT,  #22
-    C_MGMT_IN,  #21
+    C_MGMT_OUT,  #21
     C_MGMT_OUT,  #20
-    C_MGMT_IN,  #19
+    C_MGMT_OUT,  #19
 ]
 
 del config_h[NUM_IO:]
 
 config_l = [
-    C_MGMT_IN,   #0
-    C_MGMT_IN,   #1
+    C_MGMT_OUT,   #0
+    C_MGMT_OUT,   #1
     C_MGMT_OUT,   #2
-    C_MGMT_IN,   #3
-    C_MGMT_IN,   #4
+    C_MGMT_OUT,   #3
+    C_MGMT_OUT,   #4
     C_MGMT_OUT,   #5
     C_MGMT_OUT,   #6
     C_MGMT_OUT,   #7
-    C_MGMT_IN,   #8
+    C_MGMT_OUT,   #8
     C_MGMT_OUT,   #9
-    C_MGMT_IN,   #10
-    C_MGMT_IN,   #11
-    C_MGMT_IN,   #12
-    C_MGMT_IN,   #13
+    C_MGMT_OUT,   #10
+    C_MGMT_OUT,   #11
+    C_MGMT_OUT,   #12
+    C_MGMT_OUT,   #13
     C_MGMT_OUT,   #14
-    C_MGMT_IN,   #15
+    C_MGMT_OUT,   #15
     C_MGMT_OUT,   #16
-    C_MGMT_IN,   #17
+    C_MGMT_OUT,   #17
     C_MGMT_OUT,   #18
 ]
 

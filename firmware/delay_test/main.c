@@ -29,7 +29,7 @@ void delay(const int d)
 
 void set_registers()
 {
-	reg_mprj_io_0 = GPIO_MODE_MGMT_STD_ANALOG;
+	reg_mprj_io_0 = GPIO_MODE_MGMT_STD_OUTPUT;
 	reg_mprj_io_1 = GPIO_MODE_MGMT_STD_OUTPUT;
 	reg_mprj_io_2 = GPIO_MODE_MGMT_STD_OUTPUT;
 	reg_mprj_io_3 = GPIO_MODE_MGMT_STD_OUTPUT;
@@ -72,39 +72,29 @@ void set_registers()
 
 void init()
 {
-    // Management GPIO Configuration
-    reg_gpio_mode1 = 1;
-    reg_gpio_mode0 = 0;
-    reg_gpio_ien = 1;
-    reg_gpio_oe = 1;
+	// Management GPIO Configuration
+	reg_gpio_mode1 = 1;
+	reg_gpio_mode0 = 0;
+	reg_gpio_ien = 1;
+	reg_gpio_oe = 1;
 
-    // User GPIO Configuration
-    set_registers();
-    gpio_config_io();
+	// User GPIO Configuration
+	set_registers();
+	gpio_config_io();
 }
 
 void main()
 {
 	init(); // Initialise VSDsquadron
 
-	// while (1)
-	// {
-	// 	for (int i = 10000; i <= 100000; i+=10000)
-	// 	{
-	// 		reg_mprj_datal = 0x00000000; // GPIO0 - GPIO31 High
-	// 		delay(i);		 // Delay
-	// 		reg_mprj_datal = 0xffffffff; // GPIO32 - GPIO37 Low
-	// 		delay(i);		 // Delay
-	// 	}
-	// }
-
 	while (1)
 	{
-		
+		for (int i = 10000; i <= 100000; i += 10000)
+		{
 			reg_mprj_datal = 0x00000000; // GPIO0 - GPIO31 High
-			delay(10000);		 // Delay
+			delay(i);					 // Delay
 			reg_mprj_datal = 0xffffffff; // GPIO32 - GPIO37 Low
-			delay(10000);		 // Delay
-		
+			delay(i);					 // Delay
+		}
 	}
 }

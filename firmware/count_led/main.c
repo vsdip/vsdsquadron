@@ -9,7 +9,7 @@ License: MIT License
 
 void set_registers()
 {
-	reg_mprj_io_0 = GPIO_MODE_MGMT_STD_ANALOG;
+	reg_mprj_io_0 = GPIO_MODE_MGMT_STD_OUTPUT;
 	reg_mprj_io_1 = GPIO_MODE_MGMT_STD_OUTPUT;
 	reg_mprj_io_2 = GPIO_MODE_MGMT_STD_OUTPUT;
 	reg_mprj_io_3 = GPIO_MODE_MGMT_STD_OUTPUT;
@@ -52,15 +52,15 @@ void set_registers()
 
 void init()
 {
-    // Management GPIO Configuration
-    reg_gpio_mode1 = 1;
-    reg_gpio_mode0 = 0;
-    reg_gpio_ien = 1;
-    reg_gpio_oe = 1;
+	// Management GPIO Configuration
+	reg_gpio_mode1 = 1;
+	reg_gpio_mode0 = 0;
+	reg_gpio_ien = 1;
+	reg_gpio_oe = 1;
 
-    // User GPIO Configuration
-    set_registers();
-    gpio_config_io();
+	// User GPIO Configuration
+	set_registers();
+	gpio_config_io();
 }
 
 void main()
@@ -74,8 +74,7 @@ void main()
 
 	while (1)
 	{
-		// display_new(count); // Uncomment for V2 Board ( Black Button )
-		// display(count);     // Uncomment for V1 Board ( Red Button)
+		display(count);
 		count++;
 		delay(5000000);
 	}

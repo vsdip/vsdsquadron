@@ -34,7 +34,7 @@ c	d	e	g	f	a	b
 ##############################################################*/
 void set_registers()
 {
-	reg_mprj_io_0 = GPIO_MODE_MGMT_STD_ANALOG;
+	reg_mprj_io_0 = GPIO_MODE_MGMT_STD_OUTPUT;
 	reg_mprj_io_1 = GPIO_MODE_MGMT_STD_OUTPUT;
 	reg_mprj_io_2 = GPIO_MODE_MGMT_STD_OUTPUT;
 	reg_mprj_io_3 = GPIO_MODE_MGMT_STD_OUTPUT;
