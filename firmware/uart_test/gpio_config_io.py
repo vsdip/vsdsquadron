@@ -42,7 +42,7 @@ config_l = [
     C_MGMT_OUT,   #2
     C_MGMT_OUT,   #3
     C_MGMT_OUT,   #4
-    C_MGMT_OUT,   #5
+    C_MGMT_IN,   #5
     C_MGMT_OUT,   #6
     C_MGMT_OUT,   #7
     C_MGMT_OUT,   #8
