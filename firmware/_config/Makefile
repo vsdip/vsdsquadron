@@ -6,7 +6,7 @@ DEV=$(shell mpremote connect list | grep STLink | cut -f 1 -d ' ')
 #COPY_CMD=rshell --port ${DEV} cp
 COPY_CMD=cp
 
-########### cross compile python to micropython bin. ###################
+# cross compile python to micropython bin.
 
 # mpy-cross is specific to the build machine, not the Nucleo.
 # the current executable is for a M1 mac.  it needs to be compiled for other build machines
@@ -133,17 +133,12 @@ INCLUDES=-I$(shell pwd) -I../_includes/
 
 SED_CMD=sed -i'.orig' -e
 
-
 .SUFFIXES:
-
-check_part:
-ifndef PART
-	$(error "PART not defined.  Please use 'make PART=<part_id>'")
-endif
 
 PATTERN = config_io_o
 
 hex:  ${PATTERN:=.hex}
+
 
 %.elf: %.c ../_includes/sections.lds ../_includes/crt0_vex.S ./gpio_config_data.c ./send_packet.c
 	$(TOOLCHAIN_PATH)$(TOOLCHAIN_PREFIX)-unknown-elf-gcc $(INCLUDES) -O0 -mabi=ilp32 -march=rv32i -D__vexriscv__ -Wl,-Bstatic,-T,../_includes/sections.lds,--strip-debug -ffreestanding -nostdlib -o $@ ../_includes/crt0_vex.S ../_includes/isr.c $<
@@ -155,7 +150,7 @@ hex:  ${PATTERN:=.hex}
 	$(SED_CMD) '1,/@00/!d' $@
 
 clean:
-	rm -f *.elf config_io_o.hex *.bin *.vvp config_io_o.lst config_io_o.hex.orig gpio_config_def.py
+	rm -f *.elf *.bin *.vvp config_io_o.lst config_io_o.hex.orig gpio_config_def.py
 	rm -rf __pycache__	
 	rm -f *.mpy
 
