@@ -1,8 +1,7 @@
-TOOLCHAIN_PATH=
-
-TOOLCHAIN_PREFIX=riscv64
-
+TOOLCHAIN_PREFIX=riscv64-unknown-elf
 INCLUDES=-I$(shell pwd) -I../_includes/ 
+DEVICE=/dev/ttyUSB1   # replace by the terminal used by your device
+BAUDS=9600
 
 .SUFFIXES:
 
@@ -18,25 +17,16 @@ setup: check_part
 
 hex:  main.hex
 
-gpio_config_data.c: gpio_config_def.py gpio_config_io.py
+gpio_config_data.c: 
 	python3 ../_includes/gpio_config/gpio_config_builder.py
 
-sim: gpio_config_def.py gpio_config_io.py gpio_config_data.c
-	python3 ../_includes/gpio_config/gpio_config_simulator.py
-
-check: gpio_config_def.py gpio_config_io.py gpio_config_data.c
-	python3 ../_includes/gpio_config/gpio_config_checker.py
-
 %.elf: %.c ../_includes/sections.lds ../_includes/crt0_vex.S gpio_config_data.c
-	$(TOOLCHAIN_PATH)$(TOOLCHAIN_PREFIX)-unknown-elf-gcc $(INCLUDES) -O0 -mabi=ilp32 -march=rv32i -D__vexriscv__ -Wl,-Bstatic,-T,../_includes/sections.lds,--strip-debug -ffreestanding -nostdlib -o $@ ../_includes/crt0_vex.S ../_includes/isr.c $<
-	${TOOLCHAIN_PATH}$(TOOLCHAIN_PREFIX)-unknown-elf-objdump -D $@ > $*.lst
+	$(TOOLCHAIN_PREFIX)-gcc $(INCLUDES) -O0 -mabi=ilp32 -march=rv32i -D__vexriscv__ -Wl,-Bstatic,-T,../_includes/sections.lds,--strip-debug -ffreestanding -nostdlib -o $@ ../_includes/crt0_vex.S ../_includes/isr.c $<
+	$(TOOLCHAIN_PREFIX)-objdump -D $@ > $*.lst
 
 %.hex: %.elf
-	$(TOOLCHAIN_PATH)$(TOOLCHAIN_PREFIX)-unknown-elf-objcopy -O verilog $< $@
+	$(TOOLCHAIN_PREFIX)-objcopy -O verilog $< $@
 	sed -i.orig -e 's/@1000/@0000/g' $@
-
-%.bin: %.elf
-	$(TOOLCHAIN_PATH)$(TOOLCHAIN_PREFIX)-unknown-elf-objcopy -O binary $< $@
 
 # ---- Flash ----
 
@@ -51,5 +41,8 @@ clean:
 	rm -f *.elf *.hex *.bin *.vvp *.lst *.orig gpio_config_data.* gpio_config_def.py
 	rm -rf __pycache__
 	
+terminal:
+	sudo picocom -b $(BAUDS) $(DEVICE) --imap lfcrlf,crcrlf --omap delbs,crlf 
+
 .PHONY: clean hex all flash setup
 
