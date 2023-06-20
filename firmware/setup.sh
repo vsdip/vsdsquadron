@@ -13,6 +13,10 @@ sudo pip3 install pyftdi
 # Install gcc-riscv64-unknown-elf using apt-get
 sudo apt-get install gcc-riscv64-unknown-elf -y
 
+# Install picocom
+
+sudo apt install picocom
+
 # Print message "Setup complete"        
 echo "***************************"
 echo "Setup complete"

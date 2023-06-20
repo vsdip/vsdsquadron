@@ -1,8 +1,12 @@
-# Firmware
+# VSDSQUADRON Documentation
+
+**VSDSQUADRON** is a powerful RISC-V development board that utilizes the MPW2 chips. This board is equipped with a range of useful features, including GPIO, UART, and SPI, making it ideal for a variety of development projects. With a clock speed of 10 MHz, the VSDSQUADRON can handle complex computations and data processing tasks with ease. Additionally, this development board has four leds for output, providing even greater flexibility and versatility.
+
+## Directory structure
 
 - _config :- Required for generating board configuration files
 - _includes :- Required dependencies for compiling code
-- _util :- Required code for flashing to Caravel and interfacing housekeeping SPI
+- _util :- Required scripts for flashing to Caravel and interfacing housekeeping SPI
 
 - blink_led :- Toggles all GPIOs at a specified frequency
 - count_led :- 4 bit binary up counter on GPIO 0,37,1,2
@@ -12,11 +16,7 @@
 - servo_test :- Rotation of servo motor - sending PWM signal through software
 - sevseg_single_digit :- 4 bit up counter on single digit seven segment display
 - sevseg_four_digit :- up counter on four digit seven segment display
-- uart_test :- sends characters over UART
-
-## VSDSQUADRON Documentation
-
-**VSDSQUADRON** is a powerful RISC-V development board that utilizes the MPW2 chips. This board is equipped with a range of useful features, including GPIO, UART, and SPI, making it ideal for a variety of development projects. With a clock speed of 10 MHz, the VSDSQUADRON can handle complex computations and data processing tasks with ease. Additionally, this development board has four leds for output, providing even greater flexibility and versatility.
+- uart_test :- Fucyions to send and receive data over UART
 
 ## Features
 
@@ -28,25 +28,16 @@
 - 4Mb External Flash
 - USB Programming support over FTDI
 
-## Functional Overview
+## Pin Definitions
 
-### Block diagram
-
-![block](../Resources/s_block.jpg)
-
-### Pin Definitions
-
-| pin Header  | Function | Active Low/High)
+| Pin Header  | Function | Active Low/High)
 | ------------- | ------------- |----- |
-| J1  | Caravell clock Enable | Active LOW |
-| J2  | Micro USB Connector  |
+| J2  | Clock Enable | Active LOW |
 | J3  | UART enable | Active HIGH |
-| J4  | UART Header  |
-| J5  | FLASH Header  |
-| J10  | User LED Input  |
-| Caravel brakout | Direct connection to Caravel IC  |
+| J4  | Micro USB Connector  | NA |
+| J1,J5,J6,J7 | Direct connection to Caravel IC  | NA |
 
-### LED
+## LED
 
 | LED  | Function |
 | ------------- | ------------- |
@@ -54,52 +45,28 @@
 | GPIO LED  | Management GPIO  |
 | RX LED  | FTDI Receive signal |
 | TX LED  | FTDI Transmit signal |
-| L1| Caravel GPIO 0  |
-| L2  | Caravel GPIO 37  |
-| L3 | User GPIO 1 |
-| L4 | User GPIO 2 |
+| L1| GPIO 0  |
+| L2  | GPIO 1  |
+| L3 | GPIO 36 |
+| L4 | GPIO 37 |
 
- > The two User GPIO can be connected to any of the 38 GPIO via Jumper cables (J10) according to the required application.
+## Toolchain setup
 
-## Programming
-
-### Toolchain setup
-
-- Install `PyFTDI` library support. `PyFTDI` relies on `PyUSB`, which requires a native dependency: libusb 1.x.
+Run the following command while in the firmware directory.
 
 ```bash
-sudo apt-get install libusb-1.0 libusb-1.0-0-dev
-sudo pip3 uninstall setuptools
-sudo apt-get install python3-setuptools
-sudo pip3 install pyftdi
+sudo ./setup.sh
 ```
 
-- Install the riscv toolchain from:
+## Appendix A: Programming the Board (blink_led)
+
+blink_led is a simple script to toggle all the GPIOs on the board. The commands below illustrate the process of flashing vsdsquadron with the code.
 
 ```bash
-sudo apt-get install gcc-riscv64-unknown-elf
-```
-
-In case this does not work, you can get the sources yourself [here](https://github.com/riscv-collab/riscv-gnu-toolchain)
-
-Git clone the caravel_board repository.
-
-git clone <https://github.com/yathAg/vsdsquadron_software.git>
-
-### Programming Flow
-
-![block](../Resources/flow.jpg)
-
-## Appendix A: Running gpio_test
-
-GPIO test is a simple script to toggle all the GPIOs on the board. The commands below illustrate the process of flashing vsdsquadron with the code.
-
-```bash
-cd vsdsquadron_software/firmware/gpio_test
+cd vsdsquadron_software/firmware/blink_led
 make PART=<part_id>
 ```
 
-- Make sure Jumper J3 is removed
 - Power off the vsdsquadron
 - Hold the reset button and run power on the device while holding down the button.
 - Run the following command while holding down the button, and after running the command, release the button.
@@ -109,7 +76,7 @@ sudo make flash
 ```
 
 The script should flash the board and complete with the message in Note 1.
-This should result in `L1`, `L2`, and `GPIO Led` blinking with a frequency of 2Hz
+This should result in `L1`, `L2`, `L3`, `L4` and `GPIO Led` blinking with a frequency of 2Hz
 
 >**Note** 1
 
@@ -173,12 +140,6 @@ Success: Found one matching FTDI device at ftdi://ftdi:232h:1:a/1
 ## Appendix B: Transmitting data over UART
 
 ### Installing and running serial terminal to see messages
-
-To install picocom
-
-```bash
-sudo apt install picocom
-```
 
 Launch picocom using
 
