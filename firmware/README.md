@@ -28,6 +28,10 @@
 - 4Mb External Flash
 - USB Programming support over FTDI
 
+## Board Overview
+
+![top](../Resources/squadron_block.jpg)
+
 ## Pin Definitions
 
 | Pin Header  | Function | Active Low/High)

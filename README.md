@@ -7,3 +7,8 @@ Furthermore, the RISC-V chips on these boards should be open for VLSI chip desig
 ![top](Resources/squadron-02_TOP.jpg)
 
 For more information visit [https://www.vlsisystemdesign.com/vsdsquadron/](https://www.vlsisystemdesign.com/vsdsquadron/)
+
+## Documentation
+
+Steps and details of how to use the board can be founf in the firmware folder.
+
