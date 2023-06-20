@@ -11,4 +11,3 @@ For more information visit [https://www.vlsisystemdesign.com/vsdsquadron/](https
 ## Documentation
 
 Steps and details of how to use the board can be founf in the firmware folder.
-

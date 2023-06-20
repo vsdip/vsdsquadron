@@ -30,7 +30,11 @@
 
 ## Board Overview
 
-![top](../Resources/squadron_block.jpg)
+Part Description
+![Part Desc](../Resources/squadron_block.jpg)
+
+IO description
+![io Desc](../Resources/squadron_io.jpg)
 
 ## Pin Definitions
 
