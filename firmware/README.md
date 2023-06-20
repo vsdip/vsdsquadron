@@ -183,7 +183,9 @@ sudo make flash
 
 ## Appendix C: Important VSDsquadron Registers
 
-### GPIO
+The definition for these registers can be found in `/firmware/_includes/defs.h`
+
+### Management GPIO
 
 - `reg_gpio_mode1` - Management GPIO drive strength Configuration
 - `reg_gpio_mode0` - Management GPIO drive strength Configuration
@@ -206,7 +208,9 @@ sudo make flash
 - `reg_mprj_datah`   - GPIO I/O value of GPIO[37] to GPIO[32]
 
 >`reg_mprj_datal` (32 bits) is the value of GPIO[31] to GPIO[0], respectively where the bit position matches the GPIO channel.  
->Since there are more than 32 GPIO channels, the rest of them go into `reg_mprj_datah` (32 bits, only the low 6 bits are used) is the value of GPIO[37] to GPIO[32]. Everything above the 6th bit reads zero.
+>Since there are more than 32 GPIO pins, the rest of the GPIO are mapped to`reg_mprj_datah` (32 bits, only the low 6 bits are used) is the value of GPIO[37] to GPIO[32]. Everything above the 6th bit reads zero.
+
+![Part Desc](../Resources/io_reg.png)
 
 ### Individual GPIO Mode
 
