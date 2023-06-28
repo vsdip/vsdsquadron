@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the source directory
-source_dir="../uart_test"
+source_dir="../blink_led"
 
 # Path to the destination directories
 blink_led_dir="../blink_led"
