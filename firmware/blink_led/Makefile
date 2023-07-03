@@ -27,6 +27,7 @@ gpio_config_data.c:
 %.hex: %.elf
 	$(TOOLCHAIN_PREFIX)-objcopy -O verilog $< $@
 	sed -i.orig -e 's/@1000/@0000/g' $@
+	rm -f *.elf *.bin *.vvp *.lst *.orig gpio_config_data.* gpio_config_def.py
 
 # ---- Flash ----
 
