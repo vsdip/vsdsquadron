@@ -9,14 +9,14 @@
 - _util :- Required scripts for flashing to Caravel and interfacing housekeeping SPI
 
 - blink_led :- Toggles all GPIOs at a specified frequency
-- count_led :- 4 bit binary up counter on GPIO 0,37,1,2
+- count_led :- 4 bit binary up counter on GPIO 0,1,36,37
 - delay_test :- Code to test the delay function
 - line_follower :- Line following robot
 - relay_test :- Ir sensor to toggle led
 - servo_test :- Rotation of servo motor - sending PWM signal through software
 - sevseg_single_digit :- 4 bit up counter on single digit seven segment display
 - sevseg_four_digit :- up counter on four digit seven segment display
-- uart_test :- Fucyions to send and receive data over UART
+- uart_test :- Functions to send and receive data over UART
 
 ## Features
 
@@ -60,30 +60,39 @@ IO description
 
 ## Toolchain setup
 
-Run the following command while in the firmware directory.
+Run the following command while in the __firmware__ directory.
 
 ```bash
 sudo ./setup.sh
 ```
+This script sets up the necessary dependencies needed for flashing to the VSDSQUADRON.
 
 ## Appendix A: Programming the Board (blink_led)
 
-blink_led is a simple script to toggle all the GPIOs on the board. The commands below illustrate the process of flashing vsdsquadron with the code.
+blink_led is a simple script to toggle all the GPIOs on the board. 
+
+The commands below illustrate the process of flashing the vsdsquadron with the code:-
 
 ```bash
-cd vsdsquadron_software/firmware/blink_led
+cd vsdsquadron/firmware/blink_led
 make PART=<part_id>
 ```
 
+<part_id> will be mentioned in the top right corner of the board. The makefile will generate the scripts for flashing the code onto the board
+
 - Power off the vsdsquadron
-- Hold the reset button and run power on the device while holding down the button.
-- Run the following command while holding down the button, and after running the command, release the button.
+- Hold the __reset button__ and power on the device while __holding down__ the button.
+- Run the following command while holding down the button.
 
 ```bash
 sudo make flash
 ```
 
+- After running the command, release the button.
+
+
 The script should flash the board and complete with the message in Note 1.
+
 This should result in `L1`, `L2`, `L3`, `L4` and `GPIO Led` blinking with a frequency of 2Hz
 
 >**Note** 1
@@ -189,8 +198,8 @@ The definition for these registers can be found in `/firmware/_includes/defs.h`
 
 - `reg_gpio_mode1` - Management GPIO drive strength Configuration
 - `reg_gpio_mode0` - Management GPIO drive strength Configuration
-- `reg_gpio_ien`   - Management GPIO output enable
-- `reg_gpio_oe`    - Management GPIO input enable
+- `reg_gpio_ien`   - Management GPIO input enable 
+- `reg_gpio_oe`    - Management GPIO output enable
 - `reg_gpio_in`    - Management GPIO input
 - `reg_gpio_out`   - Management GPIO output
 
