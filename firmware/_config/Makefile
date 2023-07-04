@@ -1,6 +1,5 @@
 export PATH=$PATH:/bin:/usr/local/bin/:../../venv/bin:/usr/bin/:.
 
-#FLASH=/media/efabless/PYBFLASH/
 #change yatharth to your <userid>
 FLASH?=/media/yatharth/PYBFLASH  
 DEV=$(shell mpremote connect list | grep STLink | cut -f 1 -d ' ')
