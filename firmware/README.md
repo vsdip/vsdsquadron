@@ -65,11 +65,13 @@ Run the following command while in the __firmware__ directory.
 ```bash
 sudo ./setup.sh
 ```
+
 This script sets up the necessary dependencies needed for flashing to the VSDSQUADRON.
+> Note: this script only works for Ubuntu 20.0 and above
 
 ## Appendix A: Programming the Board (blink_led)
 
-blink_led is a simple script to toggle all the GPIOs on the board. 
+blink_led is a simple script to toggle all the GPIOs on the board.
 
 The commands below illustrate the process of flashing the vsdsquadron with the code:-
 
@@ -80,7 +82,7 @@ make PART=<part_id>
 
 <part_id> will be mentioned in the top right corner of the board. The makefile will generate the scripts for flashing the code onto the board
 
-- Power off the vsdsquadron
+- Power off the VSDsquadron
 - Hold the __reset button__ and power on the device while __holding down__ the button.
 - Run the following command while holding down the button.
 
@@ -171,6 +173,12 @@ picocom -b 9600 /dev/serial/by-id/usb-FTDI_Single_RS232-HS-if00-port0
 ls /dev/serial/by-id/
 ```
 
+or
+
+```bash
+make terminal
+```
+
 ### Flashing UART code and viewing data
 
 ```bash
@@ -252,3 +260,9 @@ reg_mprj_io_0 = GPIO_MODE_MGMT_STD_BIDIRECTIONAL //sets GPIO0 to bidirectional p
 - GPIO_MODE_MGMT_STD_ANALOG
 - GPIO_MODE_USER_STD_INPUT_NOPULL
 - GPIO_MODE_USER_STD_ANALOG
+
+### References
+
+- [Caravel harness Documentation](https://caravel-harness.readthedocs.io/en/latest/)
+- [Caravel Management SOC documentation](https://caravel-mgmt-soc-litex.readthedocs.io/en/latest/)
+- [Efabless Caravel Board documentation](https://github.com/efabless/caravel_board)
