@@ -1,4 +1,4 @@
-# gpio_config_def.py file for part VSD0049
+# gpio_config_def.py file for part VSD0144
 # io_config -- version 1.2.1
 voltage = 1.60
 analog = False
@@ -10,12 +10,12 @@ H_SPECIAL     = 3
 H_UNKNOWN     = 4  
 
 # voltage: 1.6
-# configuration failed in gpio[12], anything after is invalid
+# IO configuration chain was successful
 gpio_l = [
 ['IO[0]', H_NONE],
-['IO[1]', H_DEPENDENT],
+['IO[1]', H_INDEPENDENT],
 ['IO[2]', H_DEPENDENT],
-['IO[3]', H_DEPENDENT],
+['IO[3]', H_INDEPENDENT],
 ['IO[4]', H_DEPENDENT],
 ['IO[5]', H_INDEPENDENT],
 ['IO[6]', H_DEPENDENT],
@@ -24,19 +24,19 @@ gpio_l = [
 ['IO[9]', H_DEPENDENT],
 ['IO[10]', H_INDEPENDENT],
 ['IO[11]', H_INDEPENDENT],
-['IO[12]', H_UNKNOWN],
-['IO[13]', H_UNKNOWN],
-['IO[14]', H_UNKNOWN],
-['IO[15]', H_UNKNOWN],
-['IO[16]', H_UNKNOWN],
-['IO[17]', H_UNKNOWN],
-['IO[18]', H_UNKNOWN],
+['IO[12]', H_INDEPENDENT],
+['IO[13]', H_INDEPENDENT],
+['IO[14]', H_INDEPENDENT],
+['IO[15]', H_INDEPENDENT],
+['IO[16]', H_INDEPENDENT],
+['IO[17]', H_INDEPENDENT],
+['IO[18]', H_INDEPENDENT],
 ]
 # voltage: 1.6
-# configuration failed in gpio[26], anything before is invalid
+# IO configuration chain was successful
 gpio_h = [
 ['IO[37]', H_NONE],
-['IO[36]', H_DEPENDENT],
+['IO[36]', H_INDEPENDENT],
 ['IO[35]', H_INDEPENDENT],
 ['IO[34]', H_INDEPENDENT],
 ['IO[33]', H_INDEPENDENT],
@@ -44,14 +44,14 @@ gpio_h = [
 ['IO[31]', H_INDEPENDENT],
 ['IO[30]', H_INDEPENDENT],
 ['IO[29]', H_INDEPENDENT],
-['IO[28]', H_DEPENDENT],
+['IO[28]', H_INDEPENDENT],
 ['IO[27]', H_INDEPENDENT],
-['IO[26]', H_UNKNOWN],
-['IO[25]', H_UNKNOWN],
-['IO[24]', H_UNKNOWN],
-['IO[23]', H_UNKNOWN],
-['IO[22]', H_UNKNOWN],
-['IO[21]', H_UNKNOWN],
-['IO[20]', H_UNKNOWN],
-['IO[19]', H_UNKNOWN],
+['IO[26]', H_INDEPENDENT],
+['IO[25]', H_INDEPENDENT],
+['IO[24]', H_INDEPENDENT],
+['IO[23]', H_INDEPENDENT],
+['IO[22]', H_INDEPENDENT],
+['IO[21]', H_INDEPENDENT],
+['IO[20]', H_INDEPENDENT],
+['IO[19]', H_INDEPENDENT],
 ]
