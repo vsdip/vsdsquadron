@@ -1,4 +1,4 @@
-# gpio_config_def.py file for part VSD0150
+# gpio_config_def.py file for part VSD0049
 # io_config -- version 1.2.1
 voltage = 1.60
 analog = False
@@ -10,11 +10,11 @@ H_SPECIAL     = 3
 H_UNKNOWN     = 4  
 
 # voltage: 1.6
-# configuration failed in gpio[3], anything after is invalid
+# configuration failed in gpio[1], anything after is invalid
 gpio_l = [
 ['IO[0]', H_NONE],
-['IO[1]', H_INDEPENDENT],
-['IO[2]', H_INDEPENDENT],
+['IO[1]', H_UNKNOWN],
+['IO[2]', H_UNKNOWN],
 ['IO[3]', H_UNKNOWN],
 ['IO[4]', H_UNKNOWN],
 ['IO[5]', H_UNKNOWN],
