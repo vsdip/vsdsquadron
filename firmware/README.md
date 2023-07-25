@@ -65,6 +65,7 @@ Run the following command while in the __firmware__ directory.
 ```bash
 sudo ./setup.sh
 ```
+This script sets up the necessary dependencies needed for flashing to the VSDSQUADRON.
 
 This script sets up the necessary dependencies needed for flashing to the VSDSQUADRON.
 > Note: this script only works for Ubuntu 20.0 and above
