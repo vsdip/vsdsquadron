@@ -65,6 +65,7 @@ void init()
     gpio_config_io();
 }
 
+
 void main()
 {
     init(); // Initialise VSDsquadron
@@ -87,5 +88,7 @@ void main()
                 reg_mprj_datal = output;
             }
         }
+        // change by gokul, tinker with delay 0,1 sec is a good starting point
+        delay(1000000);
     }
 }
