@@ -1,6 +1,6 @@
 TOOLCHAIN_PREFIX=riscv64-unknown-elf
 INCLUDES=-I$(shell pwd) -I../_includes/ 
-DEVICE=/dev/ttyUSB1   # replace by the terminal used by your device
+DEVICE=/dev/serial/by-id/usb-FTDI_Single_RS232-HS-if00-port0    # replace by the terminal used by your device
 BAUDS=9600
 
 .SUFFIXES:

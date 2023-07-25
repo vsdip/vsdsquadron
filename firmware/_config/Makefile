@@ -1,7 +1,7 @@
 export PATH=$PATH:/bin:/usr/local/bin/:../../venv/bin:/usr/bin/:.
 
 #change yatharth to your <userid>
-FLASH?=/media/yatharth/PYBFLASH  
+FLASH?=/media/yatharth/PYBFLASH/
 DEV=$(shell mpremote connect list | grep STLink | cut -f 1 -d ' ')
 #COPY_CMD=rshell --port ${DEV} cp
 COPY_CMD=cp
