@@ -1,6 +1,6 @@
 TOOLCHAIN_PREFIX=riscv64-unknown-elf
 INCLUDES=-I$(shell pwd) -I../_includes/ 
-DEVICE=/dev/ttyUSB1   # replace by the terminal used by your device
+DEVICE=/dev/serial/by-id/usb-FTDI_Single_RS232-HS-if00-port0    # replace by the terminal used by your device
 BAUDS=9600
 
 .SUFFIXES:
@@ -27,7 +27,7 @@ gpio_config_data.c:
 %.hex: %.elf
 	$(TOOLCHAIN_PREFIX)-objcopy -O verilog $< $@
 	sed -i.orig -e 's/@1000/@0000/g' $@
-	rm -f *.elf *.bin *.vvp *.lst *.orig gpio_config_data.* gpio_config_def.py
+	rm -f *.elf *.bin *.vvp *.orig  
 
 # ---- Flash ----
 

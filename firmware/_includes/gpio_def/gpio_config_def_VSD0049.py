@@ -33,12 +33,12 @@ gpio_l = [
 ['IO[18]', H_UNKNOWN],
 ]
 # voltage: 1.6
-# configuration failed in gpio[33], anything before is invalid
+# configuration failed in gpio[35], anything before is invalid
 gpio_h = [
 ['IO[37]', H_NONE],
-['IO[36]', H_DEPENDENT],
-['IO[35]', H_INDEPENDENT],
-['IO[34]', H_INDEPENDENT],
+['IO[36]', H_INDEPENDENT],
+['IO[35]', H_UNKNOWN],
+['IO[34]', H_UNKNOWN],
 ['IO[33]', H_UNKNOWN],
 ['IO[32]', H_UNKNOWN],
 ['IO[31]', H_UNKNOWN],

@@ -10,16 +10,16 @@ H_SPECIAL     = 3
 H_UNKNOWN     = 4  
 
 # voltage: 1.6
-# configuration failed in gpio[2], anything after is invalid
+# configuration failed in gpio[8], anything after is invalid
 gpio_l = [
 ['IO[0]', H_NONE],
 ['IO[1]', H_INDEPENDENT],
-['IO[2]', H_UNKNOWN],
-['IO[3]', H_UNKNOWN],
-['IO[4]', H_UNKNOWN],
-['IO[5]', H_UNKNOWN],
-['IO[6]', H_UNKNOWN],
-['IO[7]', H_UNKNOWN],
+['IO[2]', H_DEPENDENT],
+['IO[3]', H_DEPENDENT],
+['IO[4]', H_DEPENDENT],
+['IO[5]', H_INDEPENDENT],
+['IO[6]', H_INDEPENDENT],
+['IO[7]', H_INDEPENDENT],
 ['IO[8]', H_UNKNOWN],
 ['IO[9]', H_UNKNOWN],
 ['IO[10]', H_UNKNOWN],
@@ -33,25 +33,25 @@ gpio_l = [
 ['IO[18]', H_UNKNOWN],
 ]
 # voltage: 1.6
-# configuration failed in gpio[22], anything before is invalid
+# IO configuration chain was successful
 gpio_h = [
 ['IO[37]', H_NONE],
 ['IO[36]', H_DEPENDENT],
 ['IO[35]', H_INDEPENDENT],
 ['IO[34]', H_INDEPENDENT],
 ['IO[33]', H_INDEPENDENT],
-['IO[32]', H_DEPENDENT],
+['IO[32]', H_INDEPENDENT],
 ['IO[31]', H_INDEPENDENT],
 ['IO[30]', H_INDEPENDENT],
-['IO[29]', H_INDEPENDENT],
+['IO[29]', H_DEPENDENT],
 ['IO[28]', H_INDEPENDENT],
 ['IO[27]', H_INDEPENDENT],
 ['IO[26]', H_DEPENDENT],
 ['IO[25]', H_INDEPENDENT],
 ['IO[24]', H_INDEPENDENT],
 ['IO[23]', H_INDEPENDENT],
-['IO[22]', H_UNKNOWN],
-['IO[21]', H_UNKNOWN],
-['IO[20]', H_UNKNOWN],
-['IO[19]', H_UNKNOWN],
+['IO[22]', H_INDEPENDENT],
+['IO[21]', H_INDEPENDENT],
+['IO[20]', H_INDEPENDENT],
+['IO[19]', H_INDEPENDENT],
 ]
