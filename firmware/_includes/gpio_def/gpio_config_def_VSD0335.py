@@ -1,4 +1,4 @@
-# gpio_config_def.py file for part VSD0321
+# gpio_config_def.py file for part VSD0335
 # io_config -- version 1.2.1
 voltage = 1.60
 analog = False
