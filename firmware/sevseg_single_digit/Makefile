@@ -21,7 +21,7 @@ gpio_config_data.c:
 	python3 ../_includes/gpio_config/gpio_config_builder.py
 
 %.elf: %.c ../_includes/sections.lds ../_includes/crt0_vex.S gpio_config_data.c
-	$(TOOLCHAIN_PREFIX)-gcc $(INCLUDES) -O0 -mabi=ilp32 -march=rv32i -D__vexriscv__ -Wl,-Bstatic,-T,../_includes/sections.lds,--strip-debug -ffreestanding -nostdlib -o $@ ../_includes/crt0_vex.S ../_includes/isr.c $<
+	$(TOOLCHAIN_PREFIX)-gcc $(INCLUDES) -O0 -mabi=ilp32 -march=rv32i_zicsr -D__vexriscv__ -Wl,-Bstatic,-T,../_includes/sections.lds,--strip-debug -ffreestanding -nostdlib -o $@ ../_includes/crt0_vex.S ../_includes/isr.c $<
 	$(TOOLCHAIN_PREFIX)-objdump -D $@ > $*.lst
 
 %.hex: %.elf
